@@ -1,0 +1,28 @@
+<% javascript_include_tag "Search.js" %>
+<div class="main">
+<ul>
+	<% for user in @users %>
+		<% name = user.first_name + " " + user.last_name + "\n" %>
+		<li><h2><%= link_to name, :controller => "photos", :action => "index", :id => user.id %></h2></li>
+	<% end %>
+</ul>
+<table>
+	<tr>
+		<td><h2>Search for Photos:</h2></td>
+	</tr>
+	<tr>
+		<td><input type="text" id="search" name="photosearch" class="photosearch" onkeyup="search()"></td>
+	</tr>
+	<tr>
+		<td id="result"></td>
+	</tr>
+</table>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+var searcher = new Search("search", "result");
+function search() {
+	searcher.processSearch("userIDs", "photoNames");		
+}
+//]]>
+</script>

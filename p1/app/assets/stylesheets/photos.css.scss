@@ -1,0 +1,70 @@
+// Place all the styles related to the photos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+img {
+	width: 300px;
+	border: 3px solid rgb(145, 145, 145);
+}
+
+a {
+	text-decoration: none;
+	color: #4169e1;
+}
+
+a:hover {
+	color: #1e90ff;	
+}
+
+.photo_all {
+	border: 5px solid black;	
+}
+
+.photo_all:hover {
+	background-color: rgb(240, 240, 240);	
+}
+
+.photo {
+	position: relative;
+	width: 350px;
+	border-right: 1px solid black;
+}
+
+.comments {
+	margin-left: 30px;	
+}
+
+.comment {
+	margin-bottom: 5px;	
+}
+
+.timestamp {
+	margin: 0px;
+	padding: 0px;
+	font-size: 10pt;	
+	color: black;
+}
+
+.new_comment {
+	margin-top: 10px;
+	font-style: italic;	
+}
+
+.file_upload {
+	font-size: 18pt;	
+}
+
+.upload_link {
+	text-align: center;
+	margin: 10px;	
+}
+
+.tag_photo {
+	position: relative;
+	margin-top: 10px;
+}
+
+.select_div {
+	position: absolute;
+	border: 5px solid rgb(145, 145, 145);	
+}

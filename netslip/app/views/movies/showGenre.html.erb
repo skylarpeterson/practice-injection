@@ -1,0 +1,29 @@
+<% @title = "NetSlip: Available Movies" %>
+<h1>Available Movies</h1>
+<p>Here are the movies that match your selection criteria. Click
+any title to rent that movie.</p>
+<table cellspacing="0" class="oddEven">
+  <tr class="header">
+    <td>Title</td>
+    <td>Director</td>
+    <td>Star</td>
+    <td>Year of Release</td>
+    <td>Genre</td>
+    <td>Rating</td>
+  </tr>
+  <% if !@movies || @movies.length == 0 then %>
+    <tr><td colspan="6">Sorry, no movies match your criteria</td></tr>
+  <% else %>
+    <% for movie in @movies %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td><%= link_to(movie.title, :action => :rent,
+            :id => movie.id) %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.star %></td>
+        <td><%= movie.release_year %></td>
+        <td><%= movie.genre %></td>
+        <td><%= movie.rating %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

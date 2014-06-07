@@ -1,0 +1,12 @@
+<div class="main">
+<% if params[:notice] %>
+<div><h3 class="notice">* <%= params[:notice] %></h2></div>
+<% end %>
+<%= form_tag("post_login", :method => "post") do %> 
+<p class="login"><%= label_tag(:username, "Username:") %>
+<%= text_field_tag(:username) %></p>
+<p class="login"><%= label_tag(:password, "Password:") %>
+<%= password_field_tag(:password) %></p><%= submit_tag("Login") %><% end %>
+<p>or</p>
+<h2><%= link_to "Create New User", :controller => "users", :action => "new" %></h2>
+</div>

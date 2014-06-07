@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"    lang="en">
+<head>
+  <title>Project4</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="headerBar">
+	<div class="main">
+	<table class="mainTable">
+		<tr>
+			<th class="left headerImage"><img class="headerImage" src="/images/RubyHeaderLogo.png" /></th>
+			<th class="left">
+				<h1 class="title"><%= @title %></h1>
+				<h3 class="title">CS 142: Skylar Peterson</h3>
+			</th>
+			<th class="right">
+				<% if session[:user_id] %>
+					<% user = User.find(session[:user_id]) %>
+					<h2>Hi <%= user.first_name %>! <a href="/users/logout">Logout</a></h2>
+				<% else %>
+					<h2><a href="/users/login">Login</a></h2>
+				<% end %>
+			</th>
+		</tr>
+	</table>
+	</div>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

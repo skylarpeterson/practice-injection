@@ -1,0 +1,22 @@
+<div class="main">
+<table>
+<tr>
+<td>
+<div class="photo">
+<img src=<%= "/images/" + @photo.file_name %>></img>
+<h3>Photo Created: <%= @photo.date_time %></h3>
+</div>
+</td>
+<td>
+<div class="comments">
+<%= form_tag("/comments/create", :method => "post") do %>
+<p class="comment"><%= label_tag(:comment_val, "New Comment:") %></p>
+<div><%= text_area_tag(:comment_val) %></div>
+<%= hidden_field_tag(:photo_id, @photo.id) %>
+<%= submit_tag("Comment") %>
+<% end %>
+</div>
+</td>
+</tr>
+</table>
+</div>

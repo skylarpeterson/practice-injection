@@ -1,0 +1,17 @@
+<div class="main">
+<% if params[:notice]  %>
+<div><h2><%= params[:notice] %></h2></div>
+<% end %>
+<%= form_tag("create", :method => "post") do %>
+<h2>Create New User</h2>
+<p class="login"><%= label_tag(:first_name, "First Name:") %>
+<%= text_field_tag(:first_name) %></p>
+<p class="login"><%= label_tag(:last_name, "Last Name:") %>
+<%= text_field_tag(:last_name) %></p>
+<p class="login"><%= label_tag(:username, "Username:") %>
+<%= text_field_tag(:username) %></p>
+<p class="login"><%= label_tag(:password, "Password:") %>
+<%= password_field_tag(:password) %></p>
+<%= submit_tag("Create") %>
+<% end %>
+</div>

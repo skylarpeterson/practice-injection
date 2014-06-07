@@ -1,0 +1,20 @@
+<h1>Welcome to Netslip!</h1>
+<p>We may be the newcomer in the DVD rental business, but thousands of
+customers are already enjoying the "Netslip experience".  Like them,
+we are sure that you will enjoy our informative Web site and
+blindingly fast service.  You have to experience our fleet of
+delivery agents on horseback and inline skates to understand
+what truly separates us from the competition.  And, above all,
+you can be certain that your personal information is safe with
+us, thanks to the patented NoBooBoo (TM) technology used to implement
+our Web site.</p>
+
+<p>To begin the DVD rental experience of a lifetime, please choose
+a movie category:</p>
+<%= form_tag 'showGenre' do -%>
+    <div>
+    <%= select_tag "genre", 
+        "<option>Action</option><option>All</option><option>Classics</option><option>Comedy</option><option>Drama</option>".html_safe %>
+    </div>
+    <div class="submit"><%= submit_tag "Show Movies" %></div>
+<% end %>

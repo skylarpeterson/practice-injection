@@ -1,0 +1,1 @@
+The search javascript object takes in two ids, the search input id to access the search value and the result id for populating the div with search results.  As well, the processSearch function requires two parameters, the names by which your controller will define arrays that it sends back through JSON to display and link data

@@ -1,0 +1,26 @@
+<script type="text/javascript">
+//<![CDATA[
+	function display_name(user_name) {
+		var tag_id = "tag_for_" + user_name;
+		var tag_div = document.getElementById(tag_id);
+		tag_div.innerHTML = '<p style="color: white; text-align: center">' + user_name + '</p>';
+	}
+	
+	function remove_name(user_name) {
+		var tag_id = "tag_for_" + user_name;
+		var tag_div = document.getElementById(tag_id);
+		tag_div.innerHTML = '';
+	}
+//]]>
+</script>
+
+<div class="main">
+	<div class="tag_photo" id="photo_div">	
+		<img id="image_id" src=<%= "/images/" + @photo.file_name %>></img>
+		<% @tags.each do |tag| %>
+			<% tagged_user = User.find(tag.tagged_user_id) %>
+			<% user_name = tagged_user.first_name + " " + tagged_user.last_name %>
+			<div class="select_div" id="tag_for_<%= user_name %>" style="left: <%= tag.xCoord.to_s + 'px' %>; top: <%= tag.yCoord.to_s + 'px' %>; width: <%= tag.width.to_s + 'px' %>; height: <%= tag.height.to_s + 'px' %>" onmouseover="display_name('<%= user_name %>')" onmouseout="remove_name('<%= user_name %>')"></div>
+		<% end %>
+	</div>
+</div>

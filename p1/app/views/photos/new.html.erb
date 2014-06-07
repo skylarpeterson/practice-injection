@@ -1,0 +1,7 @@
+<div class="main">
+<%= form_for(:photo, :url => { :action => :create, :id => @user.id }) do |form| %>
+<p class="file_upload"><%= form.label(:file_val, "Upload Photo File:") %>
+<%= form.file_field :file_val %></p>
+<%= submit_tag "Upload" %>
+<% end %>
+</div>

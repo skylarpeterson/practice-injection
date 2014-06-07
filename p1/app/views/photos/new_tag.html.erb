@@ -1,0 +1,25 @@
+<div class="main">
+	<h1>Tag Photo</h1>
+	<%= form_for(:photo, :url => { :action => :create_tag, :id => @photo.id}) do |form| %>
+	<div class="tag_photo" id="photo_div">	
+		<img id="image_id" src=<%= "/images/" + @photo.file_name %>></img>
+		<div id="select_div" class="select_div"></div>
+		<input type="hidden" id="hidden_x" name="hidden_x" value="-1">
+		<input type="hidden" id="hidden_y" name="hidden_y" value="-1">
+		<input type="hidden" id="hidden_width" name="hidden_width" value="-1">
+		<input type="hidden" id="hidden_height" name="hidden_height" value="-1">
+  		<script type="text/javascript">
+  		//<![CDATA[
+      	new Tagger("photo_div", "select_div", "image_id", "hidden_x", "hidden_y", "hidden_width", "hidden_height");
+  		//]]>
+ 		</script>
+	</div>
+	<select name="tagged_user">
+ 			<% @users.each do |user| %>
+ 				<% user_name = user.first_name + " " + user.last_name %>
+ 				<option value="<%= user.id %>"><%= html_escape(user_name) %></option>
+ 			<% end %>
+ 	</select>
+ 		<%= submit_tag "Tag" %>
+ 	<% end %>
+</div>
